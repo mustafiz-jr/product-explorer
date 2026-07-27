@@ -16,11 +16,11 @@ async function getAllProducts(query: string): Promise<ProductsResponse> {
 }
 
 interface PageProps {
-  searchParams: Promise<{ q?: string; limit?: string; page?: string }>;
+  searchParams: { q?: string; limit?: string; page?: string };
 }
 
 export default async function HomePage({ searchParams }: PageProps) {
-  const resolvedParams = await searchParams;
+  const resolvedParams = searchParams;
 
   const query = resolvedParams.q || '';
   const rawLimit = resolvedParams.limit || '10';
